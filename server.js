@@ -7,10 +7,13 @@ var db = require('./models');
 var app = express();
 var PORT = process.env.PORT || 3010;
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
-
-app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/burgers', routes);
 app.use('/public', express.static('public'));

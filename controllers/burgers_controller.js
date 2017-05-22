@@ -4,13 +4,13 @@ var db = require('../models');
 var router = express.Router();
 
 router.get("/", function(req, res) {
-	db.Burgers.findAll({}).then(function(results) {
+	db.burgers.findAll({}).then(function(results) {
 		res.json(results);
 	});
 });
 
 router.post("/", function(req, res) {
-	db.Burgers.create({
+	db.burgers.create({
 		id: req.body.id,
 		burger_name: req.body.name,
 		devoured: req.body.devoured
@@ -20,7 +20,7 @@ router.post("/", function(req, res) {
 });
 
 router.put("/:id", function (req, res) {
-	db.Burgers.update({ 
+	db.burgers.update({ 
 		devoured: req.body.devoured 
 	}, {
 		where: {
