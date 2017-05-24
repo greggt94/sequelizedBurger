@@ -1,5 +1,5 @@
 <h2>Add a Burger</h2>
-<form class="create-form" action="/burgers">
+<form class="create-form" action="/">
   <div class="form-group">
     <label>Burger Name:</label>
     <input type="text" name="name">
@@ -18,7 +18,7 @@
         {{#unless this.devoured}}
           <li>
             <label>{{burger_name}}</label>
-            <form class="update-form" action="/burgers">
+            <form class="update-form" action="/">
               <input type="hidden" name="devoured" value="1">
               <button type="submit">Devour It!</button>
             </form>
